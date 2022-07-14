@@ -2,7 +2,7 @@ name: Test, Docker Build and Push
 on:
   push:
     tags:
-      - '**'
+      - '2**'
 jobs:
   build-and-retest:
     runs-on: ubuntu-latest
