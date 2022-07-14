@@ -1,6 +1,5 @@
 name: Test, Docker Build and Push
-on:
-  create:
+on: create
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
