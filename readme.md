@@ -10,6 +10,8 @@ This codebase was created to demonstrate a fully fledged fullstack application b
 
 We have gone to great lengths to adhere to the **Slim** community styleguides & best practices.
 
+This now works with PHP 8.0.
+
 For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
 * [How it works](#how-it-works)
