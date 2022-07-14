@@ -21,7 +21,7 @@ jobs:
           args: --coverage-text
           php_version: "8.0"
   docker-build-and-push:
-    needs: build-and-test
+    needs:  build-and-retest
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
