@@ -200,7 +200,7 @@ Later, when we need a service or a class we ask the container, and it will insta
 
 The container is configured in the [dependencies.php](src/dependencies.php).
 We start be retrieving the container from the `$app` instance and configure the required services: 
-```php
+```php 
     $container = $app->getContainer();
     
     $container['logger'] = function ($c) {
