@@ -14,8 +14,8 @@ class HomepageTest extends BaseTestCase
         $response = $this->runApp('GET', '/');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('SlimFramework', $response->getBody());
-        $this->assertNotContains('Hello', $response->getBody());
+        $this->assertStringContainsString('SlimFramework', (string) $response->getBody());
+        $this->assertStringNotContainsString('Hello', (string) $response->getBody());
     }
 
     /**
@@ -26,7 +26,7 @@ class HomepageTest extends BaseTestCase
         $response = $this->runApp('GET', '/name');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('Hello name!', $response->getBody());
+        $this->assertStringContainsString('Hello name!', (string) $response->getBody());
     }
 
     /**
@@ -37,6 +37,7 @@ class HomepageTest extends BaseTestCase
         $response = $this->runApp('POST', '/', ['test']);
 
         $this->assertEquals(405, $response->getStatusCode());
-        $this->assertContains('Method not allowed', $response->getBody());
+        $this->assertStringContainsString('Method not allowed', (string) $response->getBody());
+
     }
 }
