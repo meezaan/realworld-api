@@ -1,4 +1,4 @@
-FROM islamicnetwork/php:8.0-apache-dev
+FROM islamicnetwork/php:8.0-apache
 
 WORKDIR /var/www
 
