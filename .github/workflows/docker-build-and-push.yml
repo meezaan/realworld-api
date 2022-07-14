@@ -1,8 +1,6 @@
 name: Test, Docker Build and Push
 on:
-  push:
-    tags:
-      - '*'
+  create:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
