@@ -1,0 +1,22 @@
+name: Test, Build and Tag
+on:
+  push:
+    branches:
+      - "master"
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: php-actions/composer@v6
+
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
+        env:
+          TEST_NAME: Scarlett
+        with:
+          bootstrap: vendor/autoload.php
+          configuration: phpunit.xml
+          args: --coverage-text
+          php_version: "8.0"
