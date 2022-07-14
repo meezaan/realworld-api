@@ -20,3 +20,16 @@ jobs:
           configuration: phpunit.xml
           args: --coverage-text
           php_version: "8.0"
+  create-tag:
+    nneds: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Tag Name
+          id: vars
+          run: echo ::set-output name=TAGNAME::$(date +"%Y-%m-%d-%H-%M"))
+      - run: echo "The new tag is " ${{ steps.vars.outputs.TAGNAME }}
+      - uses: actions/checkout@v3
+      - uses: rickstaa/action-create-tag@v1
+        with:
+          tag: ${{ steps.vars.outputs.TAGNAME }}
+          message: "Latest release: $GITHUB_SHA"
