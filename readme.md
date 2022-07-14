@@ -179,7 +179,7 @@ You can check the api by visiting [http://localhost:8080/api/articles](http://lo
 > To check all endpoints you need an HTTP client e.g [Postman](https://www.getpostman.com/).
 > There is Postman [collection made by Thinkster](https://github.com/gothinkster/realworld/blob/master/api/Conduit.postman_collection.json) team you could use.
 ### Entry Point:
-The server will direct all requests to [index.php](public/index.php). 
+The server will direct all requests to [index.php](html/index.php). 
 There, we boot the app by creating an instance of Slim\App and require all the settings and relevant files.
 
 Finally, we run the app by calling `$app->run()`, which will process the request and send the response.

@@ -2,7 +2,7 @@
 
 namespace Conduit\Controllers;
 
-use Interop\Container\ContainerInterface;
+use Slim\Container as ContainerInterface;
 
 class BaseController
 {
@@ -15,7 +15,7 @@ class BaseController
     /**
      * BaseController constructor.
      *
-     * @param \Interop\Container\ContainerInterface $container
+     * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
     {

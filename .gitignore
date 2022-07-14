@@ -22,4 +22,4 @@ Thumbs.db
 .env
 /logs/*
 !/logs/README.md
-public/tests
+html/tests
