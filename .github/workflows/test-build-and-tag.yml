@@ -25,8 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Tag Name
-          id: vars
-          run: echo ::set-output name=TAGNAME::$(date +"%Y-%m-%d-%H-%M"))
+        id: vars
+        run: echo ::set-output name=TAGNAME::$(date +"%Y-%m-%d-%H-%M"))
       - run: echo "The new tag is " ${{ steps.vars.outputs.TAGNAME }}
       - uses: actions/checkout@v3
       - uses: rickstaa/action-create-tag@v1
