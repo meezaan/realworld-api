@@ -7,7 +7,7 @@ cd /var/www
 
 # Run any application specific commands, like seeding the database
 # composer install
-composer refresh-database
+# composer refresh-database
 
 # Start apache
 apache2-foreground

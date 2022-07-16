@@ -40,3 +40,4 @@ jobs:
           tags: |
             meezaan/realworld-api:latest
             meezaan/realworld-api:${{ github.ref_name }}
+  

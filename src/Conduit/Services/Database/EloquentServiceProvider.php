@@ -5,6 +5,7 @@ namespace Conduit\Services\Database;
 use Illuminate\Database\Capsule\Manager;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
+use PDO;
 
 class EloquentServiceProvider implements ServiceProviderInterface
 {
@@ -28,9 +29,13 @@ class EloquentServiceProvider implements ServiceProviderInterface
             'database'  => $config['database'],
             'username'  => $config['username'],
             'password'  => $config['password'],
+            'port'      => $config['port'],
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
+            'options' => [
+                "sslmode" => true,
+            ],
         ]);
 
 // Make this Capsule instance available globally via static methods... (optional)
