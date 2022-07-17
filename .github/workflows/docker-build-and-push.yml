@@ -43,15 +43,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install Env Substring
-        run: ls -la && sudo apt-get update && sudo apt-get -y install gettext-base
+        run: sudo apt-get update && sudo apt-get -y install gettext-base
       - name: Install Kubectl
         run: |
-          ls -la && curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+          curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
           chmod u+x ./kubectl
       - name: Deploy
         run: |
-          pwd
-          ls -la
           curl -o ./.k8s/deploy.sh https://raw.githubusercontent.com/islamic-network/k8s-deployment/master/deploy.sh
           chmod u+x ./.k8s/deploy.sh
           export REF_NAME=${{ github.ref_name }}
