@@ -54,8 +54,8 @@ jobs:
           ls -la
           curl -o ./.k8s/deploy.sh https://raw.githubusercontent.com/islamic-network/k8s-deployment/master/deploy.sh
           chmod u+x ./.k8s/deploy.sh
-          REF_NAME=${{ github.ref_name }}
-          K8S_URL=${{ secrets.K8S_URL }}
-          K8S_TOKEN=${{ secrets.K8S_TOKEN }}
-          K8S_CA=${{ secrets.K8S_CA }}
+          export REF_NAME=${{ github.ref_name }}
+          export K8S_URL=${{ secrets.K8S_URL }}
+          export K8S_TOKEN=${{ secrets.K8S_TOKEN }}
+          export K8S_CA=${{ secrets.K8S_CA }}
           sh ./.k8s/deploy.sh
