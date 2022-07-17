@@ -20,7 +20,7 @@ jobs:
           configuration: phpunit.xml
           args: --coverage-text
           php_version: "8.0"
-  docker-build-and-push:
+  docker-build-push-and-deploy:
     needs:  build-and-retest
     runs-on: ubuntu-latest
     steps:
@@ -40,11 +40,13 @@ jobs:
           tags: |
             meezaan/realworld-api:latest
             meezaan/realworld-api:${{ github.ref_name }}
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Install Env Substring
-        run: sudo apt-get update && sudo apt-get -y install gettext-base
+        run: ls -la && sudo apt-get update && sudo apt-get -y install gettext-base
       - name: Install Kubectl
         run: |
-          curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+          ls -la && curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
           chmod u+x ./kubectl
       - name: Deploy
         run: |
