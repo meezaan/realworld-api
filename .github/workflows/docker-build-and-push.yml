@@ -40,4 +40,18 @@ jobs:
           tags: |
             meezaan/realworld-api:latest
             meezaan/realworld-api:${{ github.ref_name }}
-  
+      - name: Install Env Substring
+        run: sudo apt-get update && sudo apt-get -y install gettext-base
+      - name: Install Kubectl
+        run: |
+          curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+          chmod u+x ./kubectl
+      - name: Deploy
+        run: |
+          curl -o ./.k8s/deploy.sh https://raw.githubusercontent.com/islamic-network/k8s-deployment/master/deploy.sh
+          chmod u+x ./.k8s/deploy.sh
+          REF_NAME=${{ github.ref_name }}
+          K8S_URL=${{ secrets.K8S_URL }}
+          K8S_TOKEN=${{ secrets.K8S_TOKEN }}
+          K8S_CA=${{ secrets.K8S_CA }}
+          sh ./.k8s/deploy.sh
